@@ -5,10 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Date;
 @WebServlet("/webapp")
 public class WebApp extends HttpServlet{
@@ -16,7 +13,7 @@ public class WebApp extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/pdf");
         ServletContext ctx = getServletContext();
-        InputStream is = ctx.getResourceAsStream("/Acknowledgments.pdf");
+        InputStream is = ctx.getResourceAsStream("/1-Servlet简介.pdf");
         int read = 0;
         byte[] bytes = new byte[1024];
         OutputStream os = resp.getOutputStream();
